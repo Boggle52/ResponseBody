@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.human.myapp.iMenu">
+<select id="getMenuList" resultType="com.human.myapp.menuDTO">
+	select seqno, name, price from menu order by seqno
+</select>
+<insert id="addMenu">
+	insert into menu values(sq.nextval,#{param1},#{param2})
+</insert>
+<delete id="remove">
+	delete from menu where seqno=#{param}
+</delete>
+<update id="modify">
+	update menu set name=#{param1}, price=#{param2} where seqno=#{param3}
+</update>
+</mapper>
